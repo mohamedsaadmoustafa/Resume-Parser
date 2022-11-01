@@ -16,7 +16,7 @@ with st.form(key="Form :", clear_on_submit=True):
     Submit = st.form_submit_button(label='Submit')
 
 if Submit:
-    if File:
+    if datafile:
         # Create a text element and let the reader know the data is loading.
         data_load_state = st.info('Uploading Reseme')
         # Save uploaded file to 'F:/tmp' folder.

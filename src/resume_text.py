@@ -25,7 +25,7 @@ class ResumeText(object):
 
     @property
     def text(self):
-        self._checker()
+        #self._checker()
         return self._text
 
     def _extract_text_from_docx(self):

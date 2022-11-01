@@ -12,7 +12,7 @@ st.title("Resume Parser")
 st.image('images/header.png', width=800)
 
 with st.form(key="Form :", clear_on_submit=True):
-    File = st.file_uploader(label="Upload resume", type=["pdf", "docx", "txt"])
+    datafile = st.file_uploader(label="Upload resume", type=["pdf", "docx", "txt"])
     Submit = st.form_submit_button(label='Submit')
 
 if Submit:
@@ -21,11 +21,12 @@ if Submit:
         data_load_state = st.info('Uploading Reseme')
         # Save uploaded file to 'F:/tmp' folder.
         save_folder = 'upload/'
-        save_path = Path(save_folder, File.name)
+        save_path = Path(save_folder, datafile.name)
         with open(save_path, mode='wb') as w:
-            w.write(File.getvalue())
-
-        text = ResumeText(save_path).text
+            w.write(datafile.getvalue())
+            
+        file_details = {"FileName":datafile.name,"FileType":datafile.type}
+        text = ResumeText(file_details).text
         data_load_state.success('Extracting text from reseme')
 
         col1, col2 = st.columns(2)

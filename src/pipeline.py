@@ -4,14 +4,14 @@ from urlextract import URLExtract
 
 from constants import *
 
-# nltk.download('punkt')
+nltk.download('punkt')
 nltk.download('averaged_perceptron_tagger')
-# nltk.download('maxent_ne_chunker')
-# nltk.download('words')
-# nltk.download('stopwords')
-# nltk.download('names')
-# nltk.download('wordnet')
-# nltk.download('omw-1.4')
+nltk.download('maxent_ne_chunker')
+nltk.download('words')
+nltk.download('stopwords')
+nltk.download('names')
+nltk.download('wordnet')
+nltk.download('omw-1.4')
 
 # load pre-trained model
 nlp = spacy.load('en_core_web_sm')

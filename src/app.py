@@ -22,8 +22,8 @@ if Submit:
         # Save uploaded file to 'F:/tmp' folder.
         save_folder = 'upload/'
         save_path = Path(save_folder, datafile.name)
-        with open(save_path, mode='wb') as w:
-            w.write(datafile.getvalue())
+        #with open(save_path, mode='wb') as w:
+        #    w.write(datafile.getvalue())
             
         file_details = {"FileName":datafile.name,"FileType":datafile.type}
         text = ResumeText(file_details).text

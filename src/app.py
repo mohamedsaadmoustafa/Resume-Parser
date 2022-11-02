@@ -11,7 +11,7 @@ import os
 st.set_option('deprecation.showPyplotGlobalUse', False)
 st.title("Resume Parser")
 #st.image('images/header.png', width=800)
-st.caption("Using this to see how well your resume is read by Application Tracking Systems (ATS) when applying to jobs.")
+st.text("Using this to see how well your resume is read by Application Tracking Systems (ATS) when applying to jobs.")
 
 with st.form(key="Form :", clear_on_submit=True):
     datafile = st.file_uploader(label="Upload resume", type=["pdf", "docx", "txt"])

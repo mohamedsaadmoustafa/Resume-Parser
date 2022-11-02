@@ -1,44 +1,42 @@
 import os
-
 import PyPDF2
 # from pdfminer.high_level import extract_text
 import docx2txt
 
 
 class ResumeText(object):
-    def __init__(self, path=''):
-        self.path = path
+    def __init__(self, datafile, datafile_type):
+        self.datafile = datafile
+        self.datafile_type = datafile_type
         self._text = None
 
     def _checker(self):
         """ Only accept .pdf and .docs files """
-        file_extension = os.path.splitext(self.path)[1]
-        if file_extension == '.docx':
-            self._text = self._extract_text_from_docx()
-        elif file_extension == '.pdf':
-            self._text = self._extract_text_from_pdf()
-        elif file_extension == '.txt':
-            self._text = self._extract_text_from_txt()
+        if self.datafile_type == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
+            self._extract_text_from_docx()
+        elif self.datafile_type == 'application/pdf':
+            self._extract_text_from_pdf()
+        elif self.datafile_type == 'text/plain':
+            self._extract_text_from_txt()
         else:
-            print('pdf or docx file')
-            # return None
+            print('Upload a pdf , txt or docx file')
+            return ' '
 
     @property
     def text(self):
-        #self._checker()
+        self._checker()
         return self._text
 
     def _extract_text_from_docx(self):
-        txt = docx2txt.process(self.path)
+        txt = docx2txt.process(self.datafile)
         if txt:
-            return txt.replace('\t', ' ')
-        return None
+            self._text = txt.replace('\t', ' ')
 
     # def _extract_text_from_pdf(self):
-    #    return extract_text(self.path)
-    def extract_text_from_pdf(self, pdf_path):
-        file = open(pdf_path, 'rb')
-        reader = PyPDF2.PdfFileReader(file)
+    #    return extract_text(self.datafile)
+    def _extract_text_from_pdf(self):
+        #file = open(self.datafile, 'rb')
+        reader = PyPDF2.PdfFileReader(self.datafile)
         pages = reader.numPages
         text = ''
         key, uri, ank = '/Annots', '/URI', '/A'
@@ -51,8 +49,7 @@ class ResumeText(object):
                     obj = a.getObject()
                     if uri in obj[ank]:
                         text += obj[ank][uri]
-        return text
+        self._text = text
 
     def _extract_text_from_txt(self):
-        f = open(self.path, "r")
-        return f.read()
+        self._text = str(self.datafile.read())

@@ -2,6 +2,10 @@
 
 A simple resume parser extracting information from CV or resumes.
 
+## How will a resume get parsed?
+
+This tool uses diffrent natural language processing techniques to parse resumes. Using this to see how well your resume is read by Application Tracking Systems (ATS) when applying to jobs.
+
 ## Deploying Demo
 
 [Reseme Parser Streamlit](https://mohamedsaadmoustafa-reseme-parser-srcapp-lmw5d4.streamlitapp.com/) 

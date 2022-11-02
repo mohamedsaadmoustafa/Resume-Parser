@@ -40,6 +40,7 @@ class ResumeParser(object):
 
     @property
     def extract_name(self):
+        print(self.text,'\n\n\n\n\n\n\n\n')
         sentences = nltk.sent_tokenize(self.text)
         sentences = [nltk.word_tokenize(sent) for sent in sentences]
         sentences = [nltk.pos_tag(sent) for sent in sentences]

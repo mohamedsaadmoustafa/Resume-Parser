@@ -12,8 +12,6 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 st.title("Resume Parser")
 #st.image('images/header.png', width=800)
 st.text("See how well your resume is read by Application Tracking Systems (ATS).")
-st.text("memo is handsom")
-
 
 with st.form(key="Form :", clear_on_submit=True):
     datafile = st.file_uploader(label="Upload resume", type=["pdf", "docx", "txt"])

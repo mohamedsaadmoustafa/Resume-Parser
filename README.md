@@ -10,6 +10,8 @@ This tool uses diffrent natural language processing techniques to parse resumes.
 
 [Reseme Parser Streamlit](https://mohamedsaadmoustafa-reseme-parser-srcapp-lmw5d4.streamlitapp.com/) 
 
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://mohamedsaadmoustafa-reseme-parser-srcapp-lmw5d4.streamlitapp.com)
+
 ## File Structure
 
 ```
